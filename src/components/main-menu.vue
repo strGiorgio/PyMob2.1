@@ -2,8 +2,8 @@
     <div class="main-container">
         <h1>PyMob 2.1</h1>
         <div class="wrapper-buttons">
-            <button>New Game</button>
-            <button>How to play?</button>
+            <button><router-link to="/Home">New Game</router-link></button>
+            <button><router-link to="/About">How to play</router-link></button>
         </div>
     </div>
 </template>
