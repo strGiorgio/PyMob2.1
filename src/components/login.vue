@@ -1,7 +1,7 @@
 <template>
     <div class="wrapper-login">
         <a href="#" @click="show">LogIn</a>
-        <a href="#" @click="show">SignIn</a>
+        <a href="#" @click="show">SignUp</a>
 
         <screenLogin v-show="showScreen" @closeButton="closeButton"/>
     </div>
