@@ -19,6 +19,7 @@ export default {
 <style>
  :root {
     --color-primary: #a84d16;
+    --color-primary-light: #cf9571;
     --color-secondary: #5C4D42;
     --color-black-default: #000;
     --color-black-shadow: #2b2b2b;
