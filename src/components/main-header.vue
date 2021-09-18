@@ -1,18 +1,21 @@
 <template>
     <header class="main-container">
         <avatar />
-        <login />
+        <login v-show="true" />
+        <userProfile v-show="false"/>
     </header>
 </template>
 <script>
 import avatar from './avatar.vue'
 import login from './login.vue'
+import userProfile from './user-profile.vue'
 
 export default {
     name: 'mainHeader',
     components: {
         avatar,
-        login
+        login,
+        userProfile
     }
 }
 </script>
@@ -29,6 +32,7 @@ export default {
     max-width: 1920px;
     position: relative;
     margin: 0 auto;
+    padding: 15px;
 }
 
 </style>
