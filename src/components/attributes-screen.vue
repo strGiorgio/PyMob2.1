@@ -1,12 +1,21 @@
 <template>
     <div class="attributes-screen">
-        <h1>WELCOME!</h1>
+            <h1>YOUR MOB:</h1>
+            <div class="wrapper-attributes">
+                <mobChoose />
+            </div>
+            
     </div>
 </template>
 
 <script>
+import mobChoose from './mob-choose.vue'
+
 export default {
-    name: 'attributesScreen'    
+    name: 'attributesScreen',
+    components: {
+        mobChoose
+    }
 }
 </script>
 
@@ -21,5 +30,16 @@ export default {
 
     .attributes-screen h1 {
         font: 3rem var(--font-primary);
+        text-align: center;
+        padding: 50px;
+    }
+
+    .attributes-screen .wrapper-attributes {
+        border: 5px solid var(--color-black-default);
+        width: 90%;
+        max-width: 1920px;
+        height: 70%;
+        max-height: 1080px;
+        margin: 0 auto;
     }
 </style>
