@@ -1,16 +1,62 @@
 <template>
     <div class="container">
-        <img src="/img/unknown.png" alt="Your mob apperence">
+        <img src="/img/mob1.png" alt="Your mob apperence" v-show="show_img1">
+        <img src="/img/mob2.png" alt="Your mob apperence" v-show="show_img2">
+        <img src="/img/mob3.png" alt="Your mob apperence" v-show="show_img3">
         <div class="wrapper-buttons">
-            <button>Previous</button>
-            <button>Next</button>
+            <button @click="slideMobs('previous')">Previous</button>
+            <button @click="slideMobs('next')">Next</button>
         </div>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'mobChoose'
+    name: 'mobChoose',
+    data() {
+        return {
+            show_img1: true,
+            show_img2: false,
+            show_img3: false,
+            n: 0
+        }
+    },
+    methods: {
+        slideMobs(direction) {
+    
+            if (direction == 'next') {
+                this.n++
+                if (this.n == 3) {
+                    this.n = 0
+                }
+            }else if (direction == 'previous') {
+                this.n--
+                if (this.n == -1) {
+                    this.n = 2
+                }
+            }
+
+            switch (this.n) {
+                case 0:
+                    this.show_img1 = true;
+                    this.show_img2 = false;
+                    this.show_img3 = false;
+                    break
+                case 1:
+                    this.show_img1 = false;
+                    this.show_img2 = true;
+                    this.show_img3 = false;
+                    break
+                case 2:
+                    this.show_img1 = false;
+                    this.show_img2 = false;
+                    this.show_img3 = true;
+                    break
+                default:
+                    break
+            }
+        }
+    }
 }
 </script>
 
