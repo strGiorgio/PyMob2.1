@@ -14,6 +14,28 @@
       "name": "Cleide Lima",
       "passwd": "76y2tg",
       "id": 3
+    },
+    {
+      "name": null,
+      "passwd": null,
+      "id": 4
+    },
+    {
+      "name": "123123123",
+      "passwd": "1",
+      "id": 5
+    },
+    {
+      "name": "Gaules",
+      "passwd": "777777",
+      "id": 6
+    }
+  ],
+  "logado": [
+    {
+      "name": "Giorgio",
+      "passwd": "22112g",
+      "id": 4
     }
   ]
 }
