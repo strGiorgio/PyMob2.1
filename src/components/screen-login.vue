@@ -37,7 +37,6 @@ export default {
         submited(e) {
             e.preventDefault()
         },
-
         async logIn() {
             const user = {
                 name: this.name,
@@ -48,12 +47,28 @@ export default {
             const data = await req.json();
 
             for (var i in data) {
-                
                 if (data[i].name == user.name) {
                     if (data[i].passwd === user.passwd) {
+                        //Deleta user logado do banco de dados
+                        this.deleteUserLogged()
+
+                        //Add user logado no banco logado
+                        const reqAdduser = await fetch('http://localhost:3000/logado', {
+                            method: 'POST',
+                            headers: {
+                                "content-Type" : "application/json",
+                            },
+                            body: JSON.stringify(user)
+                        })
+
+                        const res = reqAdduser.json()
+                        console.log(res)
+
+                        //Limpa campos
                         this.name = ''
                         this.passwd = ''
 
+                        //Muda mensagens e a cor
                         const paragraph = document.querySelector(".form-container p");
                         paragraph.style.color = 'var(--color-green-default)'
 
@@ -115,6 +130,17 @@ export default {
             this.name = ""
             this.passwd = ""
             setTimeout(()=> {this.msg = null}, 3000)
+        },
+
+        async deleteUserLogged() {
+            const req = await fetch('http://localhost:3000/logado');
+            const data = await req.json();
+
+            const reqDelete = await fetch(`http://localhost:3000/logado/${data[0].id}`, {
+                method: 'DELETE'
+            })
+            const res = reqDelete.json()
+            console.log(res)
         }
     }
 }
