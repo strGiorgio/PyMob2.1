@@ -1,8 +1,8 @@
 <template>
     <header class="main-container">
         <avatar />
-        <login v-show="true" />
-        <userProfile v-show="false"/>
+        <login v-show="toggleLogin"/>
+        <userProfile v-show="toggleUser" />
     </header>
 </template>
 <script>
@@ -12,10 +12,22 @@ import userProfile from './user-profile.vue'
 
 export default {
     name: 'mainHeader',
+    data() {
+        return {
+            toggleUser: true,
+            toggleLogin: true
+        }
+    },
     components: {
         avatar,
         login,
         userProfile
+    },
+    methods: {
+        toggleUserProfile() {
+            this.toggleUser = !this.toggleUser;
+            this.toggleLogin = !this.toggleLogin
+        }
     }
 }
 </script>
