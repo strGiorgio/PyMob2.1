@@ -3,7 +3,7 @@
         <a href="#" @click="show">LogIn</a>
         <a href="#" @click="show">SignUp</a>
 
-        <screenLogin v-show="showScreen" @closeButton="closeButton"/>
+        <screenLogin v-show="showScreen" @closeButton="closeButton" @logged="$emit('userLogged')"/>
     </div>
 </template>
 <script>
@@ -19,6 +19,7 @@ export default {
     components: {
         screenLogin
     },
+    emits: ['userLogged'],
     methods: {
         show () {
             this.showScreen = true
