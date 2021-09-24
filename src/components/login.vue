@@ -39,6 +39,10 @@ export default {
         font-family: var(--font-primary);
         color: var(--color-black-default);
         text-decoration: none;
+       
+    }
+
+    .wrapper-login a:nth-of-type(1) {
         margin-right: 15px;
     }
 
