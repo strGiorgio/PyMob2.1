@@ -1,7 +1,7 @@
 <template>
     <header class="main-container">
         <avatar />
-        <login v-show="toggleLogin"/>
+        <login v-show="toggleLogin" @userLogged="toggleUserProfile"/>
         <userProfile v-show="toggleUser" />
     </header>
 </template>
@@ -27,6 +27,7 @@ export default {
         toggleUserProfile() {
             this.toggleUser = !this.toggleUser;
             this.toggleLogin = !this.toggleLogin
+            setTimeout(() => {document.location.reload(true)}, 1000);
         }
     }
 }
