@@ -1,8 +1,10 @@
 <template>
     <div class="attributes-screen">
             <h1>YOUR MOB:</h1>
+
             <div class="wrapper-attributes">
                 <mobChoose />
+                <mobAttribute />
             </div>
             
     </div>
@@ -10,11 +12,13 @@
 
 <script>
 import mobChoose from './mob-choose.vue'
+import mobAttribute from './mob-attributes.vue'
 
 export default {
     name: 'attributesScreen',
     components: {
-        mobChoose
+        mobChoose,
+        mobAttribute
     }
 }
 </script>
@@ -41,5 +45,6 @@ export default {
         height: 70%;
         max-height: 1080px;
         margin: 0 auto;
+        display: flex;
     }
 </style>
