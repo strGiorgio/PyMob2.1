@@ -1,13 +1,26 @@
 <template>
     <div class="wrapper-attr">
-        <div class="first-wrapper">
-            <label>Level:</label>
+        <div>
+            <label>Level:</label> 
             <label>Points:</label>
         </div>
-        <label>HP:</label>
-        <label>Defense:</label>
-        <label>Stamina:</label>
-        <label>Strenght:</label>
+        
+        <div>
+            <label>HP:</label> 
+            <span>BUY</span>
+        </div>
+        <div>
+            <label>Defense:</label> 
+            <span>BUY</span>
+        </div>
+        <div>
+            <label>strenght:</label> 
+            <span>BUY</span>
+        </div>
+        <div>
+            <label>Stamina:</label> 
+            <span>BUY</span>
+        </div>
 
         <button>Start battle</button>
     </div>
@@ -29,15 +42,31 @@ export default {
         justify-content: space-between;
     }
 
-    .wrapper-attr .first-wrapper {
+    .wrapper-attr div {
         display: flex;
+        justify-content: space-between;
+    }
+
+    .wrapper-attr div:nth-of-type(1) {
         justify-content: space-around;
+    }
+
+    .wrapper-attr span {
+        background-color: var(--color-green-secondary);
+        padding: 5px;
+        font-size: 1.4rem;
+        border: 2px solid var(--color-black-default);
+        cursor: pointer;
+    }
+
+    .wrapper-attr span:hover {
+        opacity: 70%;
     }
 
     .wrapper-attr button {
         width: 40%;
         padding: 30px 20px;
-        background-color: var(--color-green-default);
+        background-color: var(--color-green-secondary);
         border: 2px solid var(--color-black-default);
         align-self: end;
     }
