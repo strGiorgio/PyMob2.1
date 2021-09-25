@@ -25,6 +25,7 @@ export default {
     --color-black-shadow: #2b2b2b;
     --color-white-default: #fff;
     --color-green-default: lime;
+    --color-green-secondary: #05be05;
     --color-red-default: #920808;
 
     --font-primary: "Press Start 2P", cursive;
