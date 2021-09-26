@@ -1,24 +1,24 @@
 <template>
     <div class="wrapper-attr">
         <div>
-            <label>Level:</label> 
-            <label>Points:</label>
+            <label>Level: <span class="values">{{ level }}</span></label> 
+            <label>Points: <span class="values">{{ points }}</span></label>
         </div>
         
         <div>
-            <label>HP:</label> 
+            <label>HP: <span class="values">{{ hp }}</span></label> 
             <span>BUY</span>
         </div>
         <div>
-            <label>Defense:</label> 
+            <label>Defense: <span class="values">{{ defense }}</span></label> 
             <span>BUY</span>
         </div>
         <div>
-            <label>strenght:</label> 
+            <label>strenght: <span class="values">{{ strenght }}</span></label> 
             <span>BUY</span>
         </div>
         <div>
-            <label>Stamina:</label> 
+            <label>Stamina: <span class="values">{{ stamina }}</span></label> 
             <span>BUY</span>
         </div>
 
@@ -50,6 +50,13 @@ export default {
             for (var i in dbMobs) {
                 if (dbMobs[i].owner == dbLogged[0].name && dbMobs[i].owner_passwd == dbLogged[0].passwd) {
                     console.log('Certo!')
+                    
+                    this.hp = dbMobs[i].hp;
+                    this.defense = dbMobs[i].defense;
+                    this.strenght = dbMobs[i].strenght;
+                    this.stamina = dbMobs[i].stamina;
+                    this.level = dbMobs[i].level;
+                    this.points =dbMobs[i].points;
                 }
             }
         }
@@ -90,6 +97,12 @@ export default {
 
     .wrapper-attr span:hover {
         opacity: 70%;
+    }
+
+    .wrapper-attr .values {
+        border: none;
+        background: none;
+        color: var(--color-green-secondary);
     }
 
     .wrapper-attr button {
