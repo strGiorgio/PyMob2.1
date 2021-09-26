@@ -89,7 +89,7 @@ export default {
             const user = {
                 name: this.name, 
                 passwd: this.passwd
-                }
+            }
 
             const req = await fetch('http://localhost:3000/users')
             const data = await req.json()
@@ -106,9 +106,11 @@ export default {
             }
 
             if (!UserExist) {
+                //Turn user in a JSON stringify
                 var dataJson = JSON.stringify(user)
                 const paragraph = document.querySelector(".form-container p");
-
+                
+                //Insert user in database
                 const req = await fetch('http://localhost:3000/users', {
                     method: "POST",
                     headers: { "Content-Type" : "application/json"},
@@ -116,16 +118,41 @@ export default {
                 })
 
                 const res = await req.json()
-
                 paragraph.style.color = 'var(--color-green-default)'
                 this.msg = "Usuário cadastrado!"
                 console.log(res)
+
+                //Generate mob
+                const mob = {
+                    owner: this.name,
+                    owner_passwd: this.passwd,
+                    hp: 20,
+                    defense: 10,
+                    strenght: 5,
+                    stamina: 5,
+                    level: 0,
+                    points: 0
+                }
+
+                const mobJson = JSON.stringify(mob);
+
+                const mobReq = await fetch('http://localhost:3000/mobs', {
+                    method: 'POST',
+                    headers: {"Content-Type": "application/json"},
+                    body: mobJson
+                });
+
+                const mobRes = await mobReq.json()
+
+                console.log(mobRes)
 
             } else {
                 const paragraph = document.querySelector(".form-container p");
                 paragraph.style.color = 'var(--color-red-default)';
                 this.msg = "Usuário já existe!"
             }
+
+
 
             this.name = ""
             this.passwd = ""
