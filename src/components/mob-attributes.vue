@@ -27,7 +27,36 @@
 </template>
 <script>
 export default {
-    name: 'mobAttributes'
+    name: 'mobAttributes',
+    data() {
+        return {
+            hp: null,
+            defense: null,
+            strenght: null,
+            stamina: null,
+            level: null,
+            points: null
+        }
+    },
+    methods: {
+        async getMobAttributes() {
+            const getUserLogged = await fetch('http://localhost:3000/logado')
+            const dbLogged = await getUserLogged.json()
+            console.log(dbLogged)
+
+            const getMob = await fetch('http://localhost:3000/mobs');
+            const dbMobs = await getMob.json()
+
+            for (var i in dbMobs) {
+                if (dbMobs[i].owner == dbLogged[0].name && dbMobs[i].owner_passwd == dbLogged[0].passwd) {
+                    console.log('Certo!')
+                }
+            }
+        }
+    },
+    mounted() {
+        this.getMobAttributes()
+    }
 }
 </script>
 
