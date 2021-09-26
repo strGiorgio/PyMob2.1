@@ -21,7 +21,6 @@ export default {
         height: 50px;
         background-color: var(--color-white-default);
         border: 3px solid var(--color-black-default);
-        margin-left: 15px;
         overflow: hidden;
     }
 
