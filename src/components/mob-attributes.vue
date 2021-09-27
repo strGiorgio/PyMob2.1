@@ -73,22 +73,35 @@ export default {
             for (var i in dbMobs) {
                 if (dbLogged[0].name == dbMobs[i].owner && dbLogged[0].passwd == dbMobs[i].owner_passwd) {
                     
-                    const value = dbMobs[i].hp + 1
-                    console.log(value)
 
-                    switch (attr) {
-                        case 'hp':
-                            console.log('you bought', attr)
-                            break
-                        case 'defense':
-                            console.log('you bought', attr)
-                            break
-                        case 'strenght':
-                            console.log('you bought', attr)
-                            break
-                        case 'stamina':
-                            console.log('you bought', attr)
-                            break
+                    var value = null;
+                    var points = dbMobs[i].points
+
+                    if (points > 0) {
+                        switch (attr) {
+                            case 'hp':
+                                value = dbMobs[i].hp + 1
+                                points--
+                                console.log('you bought', attr, value, points)
+                                break
+                            case 'defense':
+                                value = dbMobs[i].defense + 1
+                                points--
+                                console.log('you bought', attr, value, points)
+                                break
+                            case 'strenght':
+                                value = dbMobs[i].strenght + 1
+                                points--
+                                console.log('you bought', attr, value, points)
+                                break
+                            case 'stamina':
+                                value = dbMobs[i].stamina + 1
+                                points--
+                                console.log('you bought', attr, value, points)
+                                break
+                        } 
+                    } else {
+                        console.log('Not enough money!')
                     }
 
                     //const datajson = JSON.stringify({attr : })
