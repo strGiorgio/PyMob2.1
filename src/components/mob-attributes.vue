@@ -72,52 +72,68 @@ export default {
 
             for (var i in dbMobs) {
                 if (dbLogged[0].name == dbMobs[i].owner && dbLogged[0].passwd == dbMobs[i].owner_passwd) {
-                    
-
                     var value = null;
-                    var points = dbMobs[i].points
+                    var pointsV = dbMobs[i].points
+                    const id = dbMobs[i].id;
 
-                    if (points > 0) {
+                    if (pointsV > 0) {
+                        var dataAttr = JSON.stringify({attr : value});
                         switch (attr) {
                             case 'hp':
                                 value = dbMobs[i].hp + 1
-                                points--
-                                console.log('you bought', attr, value, points)
+                                pointsV--
+                                console.log('you bought', attr, value, pointsV)
+                                dataAttr = JSON.stringify({hp : value});
                                 break
                             case 'defense':
                                 value = dbMobs[i].defense + 1
-                                points--
-                                console.log('you bought', attr, value, points)
+                                pointsV--
+                                console.log('you bought', attr, value, pointsV)
+                                dataAttr = JSON.stringify({defense : value});
                                 break
                             case 'strenght':
                                 value = dbMobs[i].strenght + 1
-                                points--
-                                console.log('you bought', attr, value, points)
+                                pointsV--
+                                console.log('you bought', attr, value, pointsV)
+                                dataAttr = JSON.stringify({strenght : value});
                                 break
                             case 'stamina':
                                 value = dbMobs[i].stamina + 1
-                                points--
-                                console.log('you bought', attr, value, points)
+                                pointsV--
+                                console.log('you bought', attr, value, pointsV)
+                                dataAttr = JSON.stringify({stamina : value});
                                 break
-                        } 
+                            default:
+                                break
+                        }
+
+                        //Put infos (attributes) in database
+                        const updateMob = await fetch(`http://localhost:3000/mobs/${id}`, {
+                            method: 'PATCH',
+                            headers: {"Content-Type" : "application/json"},
+                            body: dataAttr
+                        });
+                        const res = await updateMob.json();
+                        console.log(res)
+
+                        //Put infos (points) in databse
+                        const dataPoints= JSON.stringify({points: pointsV})
+    
+                        const updatePoints = await fetch(`http://localhost:3000/mobs/${id}`, {
+                            method: 'PATCH',
+                            headers: {"Content-Type" : "application/json"},
+                            body: dataPoints
+                        });
+                        const resPoints = await updatePoints.json();
+                        console.log(resPoints)
+
                     } else {
                         console.log('Not enough money!')
                     }
-
-                    //const datajson = JSON.stringify({attr : })
-                    //const updateMob = await fetch('http://localhost:3000/mobs', {
-                    //    method: 'PATCH',
-                    //    headers: {"Content-Type" : "application/json"},
-                    //    body: datajson
-                    //})
-
-                    //const res = await updateMob.json();
-                    //console.log(res)
                 }
-                
             }
-
         }
+
     },
     mounted() {
         this.getMobAttributes()
