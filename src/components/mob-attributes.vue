@@ -7,19 +7,19 @@
         
         <div>
             <label>HP: <span class="values">{{ hp }}</span></label> 
-            <span>BUY</span>
+            <span @click="marktplace('hp')">BUY</span>
         </div>
         <div>
             <label>Defense: <span class="values">{{ defense }}</span></label> 
-            <span>BUY</span>
+            <span @click="marktplace('defense')">BUY</span>
         </div>
         <div>
             <label>strenght: <span class="values">{{ strenght }}</span></label> 
-            <span>BUY</span>
+            <span @click="marktplace('strenght')">BUY</span>
         </div>
         <div>
             <label>Stamina: <span class="values">{{ stamina }}</span></label> 
-            <span>BUY</span>
+            <span @click="marktplace('stamina')">BUY</span>
         </div>
 
         <button>Start battle</button>
@@ -56,9 +56,54 @@ export default {
                     this.strenght = dbMobs[i].strenght;
                     this.stamina = dbMobs[i].stamina;
                     this.level = dbMobs[i].level;
-                    this.points =dbMobs[i].points;
+                    this.points = dbMobs[i].points;
                 }
             }
+        },
+
+        async marktplace(attr) {
+            //Getting user logged
+            const getUserLogged = await fetch('http://localhost:3000/logado')
+            const dbLogged = await getUserLogged.json();
+
+            //Getting user mob
+            const getMob = await fetch('http://localhost:3000/mobs');
+            const dbMobs = await getMob.json();
+
+            for (var i in dbMobs) {
+                if (dbLogged[0].name == dbMobs[i].owner && dbLogged[0].passwd == dbMobs[i].owner_passwd) {
+                    
+                    const value = dbMobs[i].hp + 1
+                    console.log(value)
+
+                    switch (attr) {
+                        case 'hp':
+                            console.log('you bought', attr)
+                            break
+                        case 'defense':
+                            console.log('you bought', attr)
+                            break
+                        case 'strenght':
+                            console.log('you bought', attr)
+                            break
+                        case 'stamina':
+                            console.log('you bought', attr)
+                            break
+                    }
+
+                    //const datajson = JSON.stringify({attr : })
+                    //const updateMob = await fetch('http://localhost:3000/mobs', {
+                    //    method: 'PATCH',
+                    //    headers: {"Content-Type" : "application/json"},
+                    //    body: datajson
+                    //})
+
+                    //const res = await updateMob.json();
+                    //console.log(res)
+                }
+                
+            }
+
         }
     },
     mounted() {
