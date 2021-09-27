@@ -48,7 +48,9 @@ export default {
 
             for (var i in data) {
                 if (data[i].name == user.name) {
+                    console.log('Nome encontrado!')
                     if (data[i].passwd === user.passwd) {
+                        console.log('Senha compátivel!')
                         //Deleta user logado do banco de dados
                         this.deleteUserLogged()
 
@@ -77,7 +79,6 @@ export default {
                         const paragraph = document.querySelector(".form-container p");
                         paragraph.style.color = 'var(--color-red-default)'
                         this.msg = "Senha ou usuário incorretos!"
-
                     }
                 }
 
@@ -133,17 +134,14 @@ export default {
                     level: 0,
                     points: 0
                 }
-
+                //Add a mob in database
                 const mobJson = JSON.stringify(mob);
-
                 const mobReq = await fetch('http://localhost:3000/mobs', {
                     method: 'POST',
                     headers: {"Content-Type": "application/json"},
                     body: mobJson
                 });
-
                 const mobRes = await mobReq.json()
-
                 console.log(mobRes)
 
             } else {
