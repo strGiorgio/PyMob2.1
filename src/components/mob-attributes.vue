@@ -7,19 +7,19 @@
         
         <div>
             <label>HP: <span class="values">{{ hp }}</span></label> 
-            <span @click="marktplace('hp')">BUY</span>
+            <span @click="marketplace('hp')">BUY</span>
         </div>
         <div>
             <label>Defense: <span class="values">{{ defense }}</span></label> 
-            <span @click="marktplace('defense')">BUY</span>
+            <span @click="marketplace('defense')">BUY</span>
         </div>
         <div>
             <label>strenght: <span class="values">{{ strenght }}</span></label> 
-            <span @click="marktplace('strenght')">BUY</span>
+            <span @click="marketplace('strenght')">BUY</span>
         </div>
         <div>
             <label>Stamina: <span class="values">{{ stamina }}</span></label> 
-            <span @click="marktplace('stamina')">BUY</span>
+            <span @click="marketplace('stamina')">BUY</span>
         </div>
 
         <button>Start battle</button>
@@ -61,7 +61,7 @@ export default {
             }
         },
 
-        async marktplace(attr) {
+        async marketplace(attr) {
             //Getting user logged
             const getUserLogged = await fetch('http://localhost:3000/logado')
             const dbLogged = await getUserLogged.json();
