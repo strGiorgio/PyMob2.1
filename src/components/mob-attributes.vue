@@ -92,7 +92,7 @@ export default {
                         button2.classList.remove('inactive');
                         button3.classList.remove('inactive');
                         button4.classList.remove('inactive');
-                        }, 2000)
+                        }, 1000)
 
                     if (pointsV > 0) {
                         var dataAttr = JSON.stringify({attr : value});
