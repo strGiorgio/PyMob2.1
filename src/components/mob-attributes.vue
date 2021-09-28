@@ -7,19 +7,19 @@
         
         <div>
             <label>HP: <span class="values">{{ hp }}</span></label> 
-            <span @click="marketplace('hp')">BUY</span>
+            <span class="buttons" @click="marketplace('hp')">BUY</span>
         </div>
         <div>
             <label>Defense: <span class="values">{{ defense }}</span></label> 
-            <span @click="marketplace('defense')">BUY</span>
+            <span class="buttons" @click="marketplace('defense')">BUY</span>
         </div>
         <div>
             <label>strenght: <span class="values">{{ strenght }}</span></label> 
-            <span @click="marketplace('strenght')">BUY</span>
+            <span class="buttons" @click="marketplace('strenght')">BUY</span>
         </div>
         <div>
             <label>Stamina: <span class="values">{{ stamina }}</span></label> 
-            <span @click="marketplace('stamina')">BUY</span>
+            <span class="buttons" @click="marketplace('stamina')">BUY</span>
         </div>
 
         <button>Start battle</button>
@@ -76,6 +76,24 @@ export default {
                     var pointsV = dbMobs[i].points
                     const id = dbMobs[i].id;
 
+                    //Time interval to buy
+                    const button1 = document.querySelectorAll('.buttons')[0];
+                    const button2 = document.querySelectorAll('.buttons')[1];
+                    const button3 = document.querySelectorAll('.buttons')[2];
+                    const button4 = document.querySelectorAll('.buttons')[3];
+                    setTimeout(() => {
+                        button1.classList.add('inactive');
+                        button2.classList.add('inactive');
+                        button3.classList.add('inactive');
+                        button4.classList.add('inactive');
+                        }, 0)
+                    setTimeout(() => {
+                        button1.classList.remove('inactive');
+                        button2.classList.remove('inactive');
+                        button3.classList.remove('inactive');
+                        button4.classList.remove('inactive');
+                        }, 2000)
+
                     if (pointsV > 0) {
                         var dataAttr = JSON.stringify({attr : value});
                         switch (attr) {
@@ -110,8 +128,6 @@ export default {
                                 dataAttr = JSON.stringify({stamina : value});
                                 this.stamina++
                                 this.points = pointsV
-                                break
-                            default:
                                 break
                         }
 
@@ -169,7 +185,7 @@ export default {
         justify-content: space-around;
     }
 
-    .wrapper-attr span {
+    .wrapper-attr .buttons {
         background-color: var(--color-green-secondary);
         padding: 5px;
         font-size: 1.4rem;
@@ -177,7 +193,12 @@ export default {
         cursor: pointer;
     }
 
-    .wrapper-attr span:hover {
+    .wrapper-attr .buttons:hover {
+        opacity: 70%;
+    }
+
+    .wrapper-attr .buttons.inactive {
+        pointer-events: none;
         opacity: 70%;
     }
 
