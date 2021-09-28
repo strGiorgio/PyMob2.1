@@ -84,24 +84,32 @@ export default {
                                 pointsV--
                                 console.log('you bought', attr, value, pointsV)
                                 dataAttr = JSON.stringify({hp : value});
+                                this.hp++
+                                this.points = pointsV
                                 break
                             case 'defense':
                                 value = dbMobs[i].defense + 1
                                 pointsV--
                                 console.log('you bought', attr, value, pointsV)
                                 dataAttr = JSON.stringify({defense : value});
+                                this.defense++
+                                this.points = pointsV
                                 break
                             case 'strenght':
                                 value = dbMobs[i].strenght + 1
                                 pointsV--
                                 console.log('you bought', attr, value, pointsV)
                                 dataAttr = JSON.stringify({strenght : value});
+                                this.strenght++
+                                this.points = pointsV
                                 break
                             case 'stamina':
                                 value = dbMobs[i].stamina + 1
                                 pointsV--
                                 console.log('you bought', attr, value, pointsV)
                                 dataAttr = JSON.stringify({stamina : value});
+                                this.stamina++
+                                this.points = pointsV
                                 break
                             default:
                                 break
