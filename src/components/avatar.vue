@@ -8,7 +8,7 @@ export default {
     name: 'avatar',
     data() {
         return {
-            img: '/img/unknown.png',
+            img: '/img/avatar.png',
             description: 'Ursinho Balaclava'
         }
     }
