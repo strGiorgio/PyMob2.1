@@ -1,5 +1,6 @@
 <template>
     <div class="wrapper-attr">
+        <p>{{ msg }}</p>
         <div>
             <label>Level: <span class="values">{{ level }}</span></label> 
             <label>Points: <span class="values">{{ points }}</span></label>
@@ -35,7 +36,8 @@ export default {
             strenght: null,
             stamina: null,
             level: null,
-            points: null
+            points: null,
+            msg: null
         }
     },
     methods: {
@@ -69,6 +71,8 @@ export default {
             //Getting user mob
             const getMob = await fetch('http://localhost:3000/mobs');
             const dbMobs = await getMob.json();
+
+            const message = document.querySelector('.wrapper-attr p');
 
             for (var i in dbMobs) {
                 if (dbLogged[0].name == dbMobs[i].owner && dbLogged[0].passwd == dbMobs[i].owner_passwd) {
@@ -130,6 +134,9 @@ export default {
                                 this.points = pointsV
                                 break
                         }
+                        message.style.color = 'var(--color-green-default)';
+                        this.msg = `You bought ${attr}`;
+                        setTimeout(() => {this.msg = null}, 1000)
 
                         //Put infos (attributes) in database
                         const updateMob = await fetch(`http://localhost:3000/mobs/${id}`, {
@@ -153,6 +160,9 @@ export default {
 
                     } else {
                         console.log('Not enough money!')
+                        message.style.color = 'var(--color-red-default)';
+                        this.msg = "You don`t have enough money!";
+                        setTimeout(() => {this.msg = null}, 1000)
                     }
                 }
             }
@@ -174,6 +184,12 @@ export default {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+    }
+
+    .wrapper-attr p {
+        color: var(--color-green-secondary);
+        font: 1.3rem var(--font-primary);
+        text-align: center;
     }
 
     .wrapper-attr div {
