@@ -15,8 +15,8 @@
             <span class="buttons" @click="marketplace('defense')">BUY</span>
         </div>
         <div>
-            <label>strenght: <span class="values">{{ strenght }}</span></label> 
-            <span class="buttons" @click="marketplace('strenght')">BUY</span>
+            <label>strength: <span class="values">{{ strength }}</span></label> 
+            <span class="buttons" @click="marketplace('strength')">BUY</span>
         </div>
         <div>
             <label>Stamina: <span class="values">{{ stamina }}</span></label> 
@@ -33,7 +33,7 @@ export default {
         return {
             hp: null,
             defense: null,
-            strenght: null,
+            strength: null,
             stamina: null,
             level: null,
             points: null,
@@ -55,7 +55,7 @@ export default {
                     
                     this.hp = dbMobs[i].hp;
                     this.defense = dbMobs[i].defense;
-                    this.strenght = dbMobs[i].strenght;
+                    this.strength = dbMobs[i].strength;
                     this.stamina = dbMobs[i].stamina;
                     this.level = dbMobs[i].level;
                     this.points = dbMobs[i].points;
@@ -117,12 +117,12 @@ export default {
                                 this.defense++
                                 this.points = pointsV
                                 break
-                            case 'strenght':
-                                value = dbMobs[i].strenght + 1
+                            case 'strength':
+                                value = dbMobs[i].strength + 1
                                 pointsV--
                                 console.log('you bought', attr, value, pointsV)
-                                dataAttr = JSON.stringify({strenght : value});
-                                this.strenght++
+                                dataAttr = JSON.stringify({strength : value});
+                                this.strength++
                                 this.points = pointsV
                                 break
                             case 'stamina':

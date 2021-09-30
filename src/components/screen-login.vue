@@ -129,7 +129,7 @@ export default {
                     owner_passwd: this.passwd,
                     hp: 20,
                     defense: 10,
-                    strenght: 5,
+                    strength: 5,
                     stamina: 5,
                     level: 0,
                     points: 0,
