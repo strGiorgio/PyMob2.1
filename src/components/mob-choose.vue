@@ -2,7 +2,7 @@
     <div class="container">
         <img src="/img/morcego.png" alt="Your mob apperence" v-show="show_img1">
         <img src="/img/tartaruga.png" alt="Your mob apperence" v-show="show_img2">
-        <img src="/img/mob3.png" alt="Your mob apperence" v-show="show_img3">
+        <img src="/img/urso.png" alt="Your mob apperence" v-show="show_img3">
         <div class="wrapper-buttons">
             <button @click="slideMobs('previous')">Previous</button>
             <button @click="slideMobs('next')">Next</button>
