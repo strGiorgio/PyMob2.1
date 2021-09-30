@@ -132,7 +132,8 @@ export default {
                     strenght: 5,
                     stamina: 5,
                     level: 0,
-                    points: 0
+                    points: 0,
+                    mob_appearance: 0
                 }
                 //Add a mob in database
                 const mobJson = JSON.stringify(mob);
