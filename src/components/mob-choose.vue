@@ -55,7 +55,47 @@ export default {
                 default:
                     break
             }
+        },
+
+        async mob_appearance() {
+            //GET USER LOGGED
+            const userLogged = await fetch('http://localhost:3000/logado');
+            const user = await userLogged.json()
+            //GET MOBs
+            const mobsDatabase = await fetch('http://localhost:3000/mobs');
+            const mobs = await mobsDatabase.json()
+
+            for (var i in mobs) {
+                if (user[0].name == mobs[i].owner && user[0].passwd == mobs[i].owner_passwd) {
+                    console.log("SEU MOB É " + mobs[i].mob_appearance)
+                    var value = mobs[i].mob_appearance
+                    this.n = value;
+                    
+                    switch (this.n) {
+                    case 0:
+                        this.show_img1 = true;
+                        this.show_img2 = false;
+                        this.show_img3 = false;
+                        break
+                    case 1:
+                        this.show_img1 = false;
+                        this.show_img2 = true;
+                        this.show_img3 = false;
+                        break
+                    case 2:
+                        this.show_img1 = false;
+                        this.show_img2 = false;
+                        this.show_img3 = true;
+                        break
+                    default:
+                        break
+                    }
+                }
+            }
         }
+    },
+    mounted() {
+        this.mob_appearance()
     }
 }
 </script>
