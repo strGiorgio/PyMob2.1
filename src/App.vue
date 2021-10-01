@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import mainHeader from './components/main-header.vue'
+import mainHeader from './components/header/main-header.vue'
 
 export default {
   name: 'App',

@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import attributesScreen from '../components/attributes-screen.vue'
+import attributesScreen from '../components/attributes/attributes-screen';
 
 export default {
     name: 'newGame',

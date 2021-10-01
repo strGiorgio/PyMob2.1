@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import helpScreen from '../components/help-screen.vue'
+import helpScreen from '../components/help/help-screen.vue'
 
 export default {
   name: 'help',

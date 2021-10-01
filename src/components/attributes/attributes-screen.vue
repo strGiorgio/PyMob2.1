@@ -1,18 +1,16 @@
 <template>
     <div class="attributes-screen">
-            <h1>YOUR MOB:</h1>
-
-            <div class="wrapper-attributes">
-                <mobChoose />
-                <mobAttribute />
-            </div>
-            
+        <h1>YOUR MOB:</h1>
+        <div class="wrapper-attributes">
+            <mobChoose />
+            <mobAttribute />
+        </div>
     </div>
 </template>
 
 <script>
-import mobChoose from './mob-choose.vue'
-import mobAttribute from './mob-attributes.vue'
+import mobChoose from './mob-choose'
+import mobAttribute from './mob-attributes'
 
 export default {
     name: 'attributesScreen',

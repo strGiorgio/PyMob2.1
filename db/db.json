@@ -6,36 +6,42 @@
       "passwd": "22112g"
     },
     {
-      "name": "Roger Guedes",
-      "passwd": "123123",
-      "id": 2
-    },
-    {
-      "name": "Cleide Lima",
-      "passwd": "76y2tg",
+      "name": "Eduardo",
+      "passwd": "111111",
       "id": 3
+    }
+  ],
+  "mobs": [
+    {
+      "owner": "Giorgio",
+      "owner_passwd": "22112g",
+      "hp": 100,
+      "defense": 50,
+      "strength": 31,
+      "stamina": 31,
+      "level": 100,
+      "points": 77,
+      "id": 1,
+      "mob_appearance": 0
     },
     {
-      "name": null,
-      "passwd": null,
-      "id": 4
-    },
-    {
-      "name": "123123123",
-      "passwd": "1",
-      "id": 5
-    },
-    {
-      "name": "Gaules",
-      "passwd": "777777",
-      "id": 6
+      "owner": "Eduardo",
+      "owner_passwd": "111111",
+      "hp": 20,
+      "defense": 10,
+      "strength": 5,
+      "stamina": 5,
+      "level": 0,
+      "points": 0,
+      "mob_appearance": 2,
+      "id": 3
     }
   ],
   "logado": [
     {
       "name": "Giorgio",
       "passwd": "22112g",
-      "id": 4
+      "id": 13
     }
   ]
 }
