@@ -1,43 +1,88 @@
 <template>
-    <div class="container">
-        <h2>Attributes, Points e Level</h2>
-        <article>
-            <h3>HP:</h3>
-            <p>Todo mob inicia com 20 de HP que é seus pontos de vida.</p>
-        </article>
+    <div>
+        <nav>
+            <ul>
+                <li class="list-1" @click="btnLeftIsPressed">Attributes, points...</li>
+                <li class="list-2" @click="btnRightIsPressed">Battle</li>
+            </ul>
+        </nav>
 
-        <article>
-            <h3>DEFENSE:</h3>
-            <p>Todo mob inicia com 5 de defesa, a defesa subtrai o dano inimigo, ou seja, caso você receba 30 de dano, será descontado 5, recebendo 25 de dano.</p>
-        </article>
+        <div class="container">
+            <div class="help-attributes" v-show="showAttributesHelp">
+                <h2>Attributes, Points and Level</h2>
+                <article>
+                    <h3>HP:</h3>
+                    <p>Todo mob inicia com 20 de HP que é seus pontos de vida.</p>
+                </article>
 
-        <article>
-            <h3>STRENGTH:</h3>
-            <p>Todo mob inicia com 5 de força, sua força é multiplicada por sua estamina.</p>
-        </article>
+                <article>
+                    <h3>DEFENSE:</h3>
+                    <p>Todo mob inicia com 5 de defesa, a defesa subtrai o dano inimigo, ou seja, caso você receba 30 de dano, será descontado 5, recebendo 25 de dano.</p>
+                </article>
 
-        <article>
-            <h3>ESTAMINA:</h3>
-            <p>Todo mob inicia com 1 de estamina. A estamina serve para regenerar seu mob mais rapido e aumentar ao dano total.</p>
-        </article>
+                <article>
+                    <h3>STRENGTH:</h3>
+                    <p>Todo mob inicia com 5 de força, sua força é multiplicada por sua estamina.</p>
+                </article>
 
-        <div class="points-level"> 
-            <article>
-                <h3>Level</h3>
-                <p>A cada level, você enfrentará novos inimigos. Quanto maior seu level, mais difícil será!</p>
-            </article>
+                <article>
+                    <h3>ESTAMINA:</h3>
+                    <p>Todo mob inicia com 1 de estamina. A estamina serve para regenerar seu mob mais rapido e aumentar ao dano total.</p>
+                </article>
 
-            <article>
-                <h3>Points</h3>
-                <p>Seus pontos poderam ser trocados por mais atributos. Para ganhar pontos você precisa ganhar batalhas.</p>
-            </article>
+                <div class="points-level"> 
+                    <article>
+                        <h3>Level</h3>
+                        <p>A cada level, você enfrentará novos inimigos. Quanto maior seu level, mais difícil será!</p>
+                    </article>
+
+                    <article>
+                        <h3>Points</h3>
+                        <p>Seus pontos poderam ser trocados por mais atributos. Para ganhar pontos você precisa ganhar batalhas.</p>
+                    </article>
+                </div>
+            </div>
+
+            <div class="help-battle" v-show="showBattleHelp">
+                <h2>Battle</h2>
+                <article></article>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'helpBox'
+    name: 'helpBox',
+    data() {
+        return {
+            showAttributesHelp: true,
+            showBattleHelp: false
+        }
+    },
+    methods: {
+        btnLeftIsPressed() {
+            const btn1 = document.querySelector('.list-1');
+            const btn2 = document.querySelector('.list-2');
+
+            btn1.classList.add('active')
+            btn2.classList.remove('active')
+
+            this.showAttributesHelp= true,
+            this.showBattleHelp = false
+        },
+        
+        btnRightIsPressed() {
+            const btn1 = document.querySelector('.list-1');
+            const btn2 = document.querySelector('.list-2');
+
+            btn2.classList.add('active')
+            btn1.classList.remove('active')
+
+            this.showAttributesHelp= false,
+            this.showBattleHelp = true
+        }
+    }
 }
 </script>
 
@@ -46,6 +91,37 @@ export default {
         border: 2px solid var(--color-black-default);
         width: 60%;
         height: 60%;
+    }
+
+    nav {
+        font: 1.4rem var(--font-primary);
+        width: 60%;
+        margin: 0 auto;
+    }
+
+    nav ul{
+        list-style-type: none;
+        display: flex;
+        width: 100%;
+        justify-content: space-evenly;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        cursor: pointer;
+    }
+
+    nav ul li {
+        padding: 5px 20px;
+        width: 100%;
+        transition: .5s;
+    }
+
+    nav ul li:hover {
+        background-color: var(--color-secondary);
+    }
+
+    nav ul .active {
+        background-color: var(--color-secondary);
     }
 
     .container h2 {
