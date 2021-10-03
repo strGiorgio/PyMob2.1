@@ -2,7 +2,7 @@
     <div>
         <nav>
             <ul>
-                <li class="list-1" @click="btnLeftIsPressed">Attributes, points...</li>
+                <li class="list-1 active" @click="btnLeftIsPressed">Attributes, points...</li>
                 <li class="list-2" @click="btnRightIsPressed">Battle</li>
             </ul>
         </nav>
@@ -45,7 +45,25 @@
 
             <div class="help-battle" v-show="showBattleHelp">
                 <h2>Battle</h2>
-                <article></article>
+                <article>
+                    <h3>Batalha</h3>
+                    <p>Na arena você terá 4 ações. Atacar, regenerar e fugir. O jogador terá uma rodada por vez, podendo escolher sua ação, sendo assim, você só pode atacar ou regenerar por cada vez separadamente. Escolha a ação certa!</p>
+                </article>
+
+                <article>
+                    <h3>Atacar</h3>
+                    <p>Caso ataque, seu hit no inimigo será sua força multiplicada pela estamina.</p>
+                </article>
+
+                <article>
+                    <h3>Regenerar</h3>
+                    <p>Sua regeneração é sua defesa multiplicado por sua estamina, lembrando que quando maior a estamina, mais rápido será sua regeneração.</p>
+                </article>
+
+                <article>
+                    <h3>Fugir</h3>
+                    <p>Caso decida fugir, você não ganhará nenhum ponto e seu level não subirá, lembrando que pode haver a chance de seu mob não conseguir fugir, caso sua estamina esteja baixa.</p>
+                </article>
             </div>
         </div>
     </div>
