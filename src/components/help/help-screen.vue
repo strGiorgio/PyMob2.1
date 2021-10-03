@@ -21,7 +21,7 @@ export default {
         background-color: var(--color-primary);
         width: 100vw;
         max-width: 1920px;
-        height: calc(100vh - 70px);
+        min-height: calc(100vh - 70px);
         margin: 0 auto;
     }
 
