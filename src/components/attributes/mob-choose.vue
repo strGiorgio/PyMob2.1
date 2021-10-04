@@ -26,9 +26,21 @@ export default {
     },
     methods: {
         async pickMob() {
+            
             //Get button, add class or remove to style when clicked
             const btn = document.querySelector('.btn-pick');
             btn.classList.toggle('clicked')
+
+            //Set interval
+            setTimeout(() => {
+                btn.style.pointerEvents = 'none';
+                btn.style.opacity = "80%"
+            }, 0)
+            setTimeout(() => {
+                btn.style.pointerEvents = 'initial';
+                btn.style.opacity = "100%"
+            }, 1200)
+
 
             //Get user
             const loggedDB = await fetch('http://localhost:3000/logado');
@@ -40,7 +52,6 @@ export default {
             for (var i in mobs) {
                 if (user[0].name == mobs[i].owner && user[0].passwd == mobs[i].owner_passwd) {
                     const idMob = mobs[i].id
-                    console.log(idMob)
 
                     //Put appearance in mob database
                     const data = JSON.stringify({mob_appearance: this.n})
@@ -50,7 +61,6 @@ export default {
                         body: data
                     });
                     const res = await updateMob.json();
-
                     console.log(res)
                 }
             }
