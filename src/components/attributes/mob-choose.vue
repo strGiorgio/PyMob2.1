@@ -3,6 +3,9 @@
         <img src="/img/morcego.png" alt="Your mob apperence" v-show="show_img1">
         <img src="/img/tartaruga.png" alt="Your mob apperence" v-show="show_img2">
         <img src="/img/urso.png" alt="Your mob apperence" v-show="show_img3">
+        <div class="wrapper-button-pick">
+            <button class="btn-pick" @click="pickMob" title="click to pick your mob appearance">Pick</button>
+        </div>
         <div class="wrapper-buttons">
             <button @click="slideMobs('previous')">Previous</button>
             <button @click="slideMobs('next')">Next</button>
@@ -22,7 +25,17 @@ export default {
         }
     },
     methods: {
+        async pickMob() {
+            //Get button, add class or remove to style when clicked
+            const btn = document.querySelector('.btn-pick');
+            btn.classList.toggle('clicked')
+            console.log(this.n)
+
+            //
+        },
         slideMobs(direction) {
+            const btn = document.querySelector('.btn-pick');
+            btn.classList.remove('clicked')
     
             if (direction == 'next') {
                 this.n++
@@ -114,6 +127,18 @@ export default {
     .container img {
         width: 100%;
         height: 90%;
+    }
+
+    .container .wrapper-button-pick .btn-pick {
+        width: 100% ;
+        height: 40px;
+        font: 1rem var(--font-primary);
+        background-color: var(--color-secondary);
+        border: 2px solid var(--color-black-default);
+    }
+
+    .container .wrapper-button-pick .btn-pick.clicked {
+        background: var(--color-secondary-shadow);
     }
 
     .container .wrapper-buttons {
