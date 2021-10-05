@@ -23,7 +23,7 @@
             <span class="buttons" @click="marketplace('stamina')">BUY</span>
         </div>
 
-        <button>Start battle</button>
+        <button><router-link to="/battle">Start Battle</router-link></button>
     </div>
 </template>
 <script>
@@ -230,6 +230,11 @@ export default {
         background-color: var(--color-green-secondary);
         border: 2px solid var(--color-black-default);
         align-self: end;
+    }
+
+    .wrapper-attr button a {
+        text-decoration: none;
+        color: var(--color-black-default);
     }
 
 </style>
