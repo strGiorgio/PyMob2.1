@@ -43,5 +43,6 @@ export default {
 
   body {
     background-color: var(--color-secondary);
+    overflow-x: hidden;
   }
 </style>
