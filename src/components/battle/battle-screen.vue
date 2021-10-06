@@ -1,7 +1,7 @@
 <template>
     <div class="battle-arena">
         <h1>Welcome to Arena</h1>
-        <div class="area">
+        <div class="wrapper-arena">
             <controller />
         </div>
     </div>
@@ -9,6 +9,7 @@
 
 <script>
 import controller from './controller.vue'
+
 export default {
     name: 'battleScreen',
     components: {
@@ -21,7 +22,7 @@ export default {
     .battle-arena {
         width: 100vw;
         max-width: 1920px;
-        min-height: calc(100vh - 70px);
+        height: calc(100vh - 70px);
         background-color: var(--color-primary);
         padding: 0;
         display: flex;
@@ -37,9 +38,10 @@ export default {
         margin-bottom: 30px;
     }
 
-    .area {
-        width: 80%;
-        height: 550px;
+    .battle-arena .wrapper-arena {
+        width: 70%;
+        height: 80%;
+        max-height: 1080px;
         background-color: #fff;
         position: relative;
         overflow: hidden;
