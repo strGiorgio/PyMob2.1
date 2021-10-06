@@ -1,10 +1,16 @@
 <template>
-    <div class="container"></div>
+    <div class="container">
+        <controller />
+    </div>
 </template>
 
 <script>
+import controller from './controller.vue'
 export default {
-    name: 'battleScreen'
+    name: 'battleScreen',
+    components: {
+        controller
+    }
 }
 </script>
 
