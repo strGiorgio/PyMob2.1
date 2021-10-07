@@ -45,5 +45,6 @@ export default {
         background-color: #fff;
         position: relative;
         overflow: hidden;
+        border: 2px solid var(--color-black-default);
     }
 </style>
