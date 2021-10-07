@@ -24,6 +24,7 @@ export default {
     --color-secondary-shadow: #3b322b;
     --color-black-default: #000;
     --color-black-shadow: #2b2b2b;
+    --color-gray: #818181;
     --color-white-default: #fff;
     --color-green-default: lime;
     --color-green-secondary: #05be05;
