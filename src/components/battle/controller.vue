@@ -4,7 +4,8 @@
             <img src="/img/avatar.png" alt="">
         </div>
         <div class="controller-buttons">
-            <progress max="100" value="10" ></progress>
+            <progress id="progress-bar" max="100" value="50"></progress>
+            <span>HP: 10 / 100</span>
             <button>Atack</button>
             <button>Atack Especial</button>
             <button>Escape</button>
@@ -50,7 +51,34 @@ export default {
     }
     
     .controller-buttons progress {
+        width: 100%;
+        border: 0px solid var(--color-black-default);
         grid-column: 1 / 3;
+        position: relative;
+    }
+
+    .controller-buttons progress::-webkit-progress-bar {
+        background-color: var(--color-white-default);
+        height: 35px;
+    }
+    
+    .controller-buttons progress::-moz-progress-bar {
+        background-color: var(--color-green-secondary);
+    }
+
+    .controller-buttons progress::-webkit-progress-value {
+        background-color: var(--color-green-secondary);
+    }
+
+    .controller-buttons progress::-moz-progress-value {
+        background-color: var(--color-green-secondary);
+    }
+
+    .controller-buttons span {
+        font: 1.3rem var(--font-primary);
+        position: absolute;
+        right: 60px;
+        top: 17px;
     }
 
     .controller-buttons button {
