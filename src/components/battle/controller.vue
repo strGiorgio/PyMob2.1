@@ -4,8 +4,8 @@
             <img src="/img/avatar.png" alt="">
         </div>
         <div class="controller-buttons">
-            <progress id="progress-bar" max="100" value="50"></progress>
-            <span>HP: 10 / 100</span>
+            <progress id="progress-bar" :max="max_hp" value="20"></progress>
+            <span>HP: 10 / {{ max_hp }}</span>
             <button>Atack</button>
             <button>Atack Especial</button>
             <button>Escape</button>
@@ -17,7 +17,32 @@
 
 <script>
 export default {
-    name: 'controller'
+    name: 'controller',
+    data() {
+        return {
+            max_hp: null
+        }
+    },
+    methods: {
+        async getInfos() {
+            //get user logged
+            const loggedDB = await fetch('http://localhost:3000/logado');
+            const user = await loggedDB.json()
+            //get mob
+            const mobsDB = await fetch('http://localhost:3000/mobs');
+            const mobs = await mobsDB.json()
+
+            for (var i in mobs) {
+                if (user[0].name == mobs[i].owner && user[0].passwd == mobs[i].owner_passwd){
+                    this.max_hp = mobs[i].hp
+                }
+            }
+
+        }
+    },
+    created() {
+        this.getInfos()
+    }
 }
 </script>
 
