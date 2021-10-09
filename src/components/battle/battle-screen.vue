@@ -1,25 +1,28 @@
 <template>
-    <div class="battle-arena">
+    <div class="battle-screen">
         <h1>Welcome to Arena</h1>
         <div class="wrapper-arena">
+            <battleArena />
             <controller />
         </div>
     </div>
 </template>
 
 <script>
+import battleArena from './battle-arena.vue'
 import controller from './controller.vue'
 
 export default {
     name: 'battleScreen',
     components: {
+        battleArena,
         controller
     }
 }
 </script>
 
 <style scoped>
-    .battle-arena {
+    .battle-screen {
         width: 100vw;
         max-width: 1920px;
         height: calc(100vh - 70px);
@@ -32,13 +35,13 @@ export default {
         margin: 0 auto;
     }
 
-    .battle-arena h1 {
+    .battle-screen h1 {
         font: 2.3rem var(--font-primary);
         text-align: center;
         margin-bottom: 30px;
     }
 
-    .battle-arena .wrapper-arena {
+    .battle-screen .wrapper-arena {
         width: 70%;
         height: 80%;
         max-height: 1080px;
