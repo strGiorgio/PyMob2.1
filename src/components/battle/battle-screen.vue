@@ -3,6 +3,7 @@
         <h1>Welcome to Arena</h1>
         <div class="wrapper-arena">
             <battleArena />
+            <enemyCard />
             <controller />
         </div>
     </div>
@@ -10,13 +11,15 @@
 
 <script>
 import battleArena from './battle-arena.vue'
+import enemyCard from './enemy-card.vue'
 import controller from './controller.vue'
 
 export default {
     name: 'battleScreen',
     components: {
         battleArena,
-        controller
+        controller,
+        enemyCard
     }
 }
 </script>
