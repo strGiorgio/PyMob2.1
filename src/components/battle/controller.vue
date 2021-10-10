@@ -1,7 +1,9 @@
 <template>
     <div class="controller">
         <div class="wrapper-img">
-            <img src="/img/avatar.png" alt="">
+            <img src="/img/morcego-avatar.png" alt="" v-show="show_img1">
+            <img src="/img/tartaruga-avatar.png" alt="" v-show="show_img2">
+            <img src="/img/urso-avatar.png" alt="" v-show="show_img3">
         </div>
         <div class="controller-buttons">
             <progress id="progress-bar" :max="max_hp" value="20"></progress>
@@ -20,7 +22,10 @@ export default {
     name: 'controller',
     data() {
         return {
-            max_hp: null
+            max_hp: null,
+            show_img1: false,
+            show_img2: true,
+            show_img3: false
         }
     },
     methods: {
@@ -38,10 +43,48 @@ export default {
                 }
             }
 
+        },
+
+        async mob_appearance() {
+            //GET USER LOGGED
+            const userLogged = await fetch('http://localhost:3000/logado');
+            const user = await userLogged.json()
+            //GET MOBs
+            const mobsDatabase = await fetch('http://localhost:3000/mobs');
+            const mobs = await mobsDatabase.json()
+
+            for (var i in mobs) {
+                if (user[0].name == mobs[i].owner && user[0].passwd == mobs[i].owner_passwd) {
+                    console.log("SEU MOB É " + mobs[i].mob_appearance)
+                    var value = mobs[i].mob_appearance
+                    this.n = value;
+                    
+                    switch (this.n) {
+                    case 0:
+                        this.show_img1 = true;
+                        this.show_img2 = false;
+                        this.show_img3 = false;
+                        break
+                    case 1:
+                        this.show_img1 = false;
+                        this.show_img2 = true;
+                        this.show_img3 = false;
+                        break
+                    case 2:
+                        this.show_img1 = false;
+                        this.show_img2 = false;
+                        this.show_img3 = true;
+                        break
+                    default:
+                        break
+                    }
+                }
+            }
         }
     },
     created() {
-        this.getInfos()
+        this.getInfos();
+        this.mob_appearance();
     }
 }
 </script>
@@ -54,7 +97,7 @@ export default {
         border: 2px solid var(--color-black-default);
         position: absolute;
         bottom: 10px; 
-        right: 200px;
+        right: 50px;
         transform: translateX(450px);
         animation: slideToLeft 2s forwards;
         padding: 5px;
@@ -66,6 +109,7 @@ export default {
     .wrapper-img img{
         width: 90%;
         height: 100%;
+        border: 1px solid var(--color-black-default);
     }
 
     .controller-buttons {
