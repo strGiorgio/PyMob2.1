@@ -12,6 +12,9 @@ export default {
   name: 'App',
   components: {
     mainHeader
+  },
+  mounted() {
+    //window.confirm('Para uma melhor experiência, por favor utilize navegadores mozilla (firefox)')
   }
 }
 </script>
