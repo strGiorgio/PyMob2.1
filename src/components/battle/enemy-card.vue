@@ -54,6 +54,25 @@ export default {
     .enemy-card .wrapper-hp progress {
         width: 100%;
         align-self: center;
+        border: 1px solid var(--color-black-default);
+        border-radius: 10px;
+    }
+
+    .enemy-card .wrapper-hp progress::-webkit-progress-bar {
+        background-color: #fff;
+    }
+
+    .enemy-card .wrapper-hp progress::-moz-progress-bar {
+        background-color: var(--color-red-default);
+        border-radius: 10px;
+    }
+
+    .enemy-card .wrapper-hp progress::-moz-progress-value {
+        background-color: var(--color-red-default);
+    }
+
+    .enemy-card .wrapper-hp progress::-webkit-progress-value {
+        background-color: var(--color-red-default);
     }
 
     .enemy-card .wrapper-hp p {
