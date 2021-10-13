@@ -19,10 +19,10 @@
       "defense": 50,
       "strength": 35,
       "stamina": 35,
-      "level": 100,
+      "level": 0,
       "points": 69,
       "id": 1,
-      "mob_appearance": 1
+      "mob_appearance": 2
     },
     {
       "owner": "Eduardo",
@@ -49,10 +49,12 @@
       {
         "name": "Snake King",
         "level": 5,
+        "current_hp": 25,
         "hp": 25,
+        "defense": 10,
         "strength": 5,
+        "stamina": 5,
         "id": 1
-        
       }
     ],
     "quimera": [
