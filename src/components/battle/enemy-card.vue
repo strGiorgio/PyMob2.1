@@ -37,14 +37,20 @@ export default {
 
             for (var i in mobs) {
                 if(user[0].name == mobs[i].owner && user[0].passwd == mobs[i].owner_passwd) {
-                    if (mobs[i].level < 5) {
                         const enemiesDB = await fetch('http://localhost:3000/enemies');
                         const enemy = await enemiesDB.json();
-
+                    if (mobs[i].level < 5) {
                         this.max_hp = enemy.snake[0].hp;
                         this.current_hp = enemy.snake[0].current_hp;
                         this.enemy_name = enemy.snake[0].name;
                         this.enemy_level = enemy.snake[0].level;
+                        console.log(enemy.snake)
+                    } else if ( 5 < mobs[i].level < 10) {
+                        this.max_hp = enemy.quimera[0].hp;
+                        this.current_hp = enemy.quimera[0].current_hp;
+                        this.enemy_name = enemy.quimera[0].name;
+                        this.enemy_level = enemy.quimera[0].level;
+                        console.log(enemy.quimera)
                     }
                 }
             }
