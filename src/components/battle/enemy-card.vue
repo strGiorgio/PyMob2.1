@@ -41,7 +41,10 @@ export default {
                         const enemiesDB = await fetch('http://localhost:3000/enemies');
                         const enemy = await enemiesDB.json();
 
-                        console.log(enemy.snake[0].name)
+                        this.max_hp = enemy.snake[0].hp;
+                        this.current_hp = enemy.snake[0].current_hp;
+                        this.enemy_name = enemy.snake[0].name;
+                        this.enemy_level = enemy.snake[0].level;
                     }
                 }
             }
