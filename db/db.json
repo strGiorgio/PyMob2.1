@@ -19,7 +19,7 @@
       "defense": 50,
       "strength": 35,
       "stamina": 35,
-      "level": 0,
+      "level": 7,
       "points": 69,
       "id": 1,
       "mob_appearance": 2
@@ -49,7 +49,7 @@
       {
         "name": "Snake King",
         "level": 5,
-        "current_hp": 25,
+        "current_hp": 20,
         "hp": 25,
         "defense": 10,
         "strength": 5,
@@ -60,9 +60,12 @@
     "quimera": [
       {
         "name": "Quimera",
-        "level": 15,
-        "hp": 50,
-        "strength": 10,
+        "level": 10,
+        "current_hp": 20,
+        "hp": 40,
+        "defense": 20,
+        "strength": 8,
+        "stamina": 6,
         "id": 2
       }
     ]
