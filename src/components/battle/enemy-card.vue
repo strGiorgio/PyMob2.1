@@ -1,14 +1,14 @@
 <template>
     <div class="enemy-card">
         <div class="wrapper-name-level">
-            <p>EnemyName</p>
-            <p>Lv1</p>
+            <p>{{ enemy_name }}</p>
+            <p>Lv{{ enemy_level }}</p>
         </div>
         
 
         <div class="wrapper-hp">
             <p>HP:  </p>
-            <progress max="100" value="50"></progress>
+            <progress :max="max_hp" :value="current_hp"></progress>
         </div>
         
     </div>
@@ -16,7 +16,40 @@
 
 <script>
 export default {
-    name: 'enemyCard'
+    name: 'enemyCard',
+    data() {
+        return {
+            current_hp: null,
+            max_hp: null,
+            enemy_level: null,
+            enemy_name: null
+        }
+    },
+    methods: {
+        async getEnemy() {
+            //Get logged user
+            const loggedDB = await fetch('http://localhost:3000/logado');
+            const user = await loggedDB.json();
+
+            //Get user mob
+            const mobsDB = await fetch('http://localhost:3000/mobs');
+            const mobs = await mobsDB.json();
+
+            for (var i in mobs) {
+                if(user[0].name == mobs[i].owner && user[0].passwd == mobs[i].owner_passwd) {
+                    if (mobs[i].level < 5) {
+                        const enemiesDB = await fetch('http://localhost:3000/enemies');
+                        const enemy = await enemiesDB.json();
+
+                        console.log(enemy.snake[0].name)
+                    }
+                }
+            }
+        }
+    },
+    mounted() {
+        this.getEnemy()
+    }
 }
 </script>
 
