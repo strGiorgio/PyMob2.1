@@ -9,7 +9,7 @@
             <img class="mob-image" src="/img/urso-idle.png" alt="Mob idle" v-show="show_img3">
 
             <!-- Enemies -->
-            <img class="enemy-image" src="/img/morcego.png" alt="">
+            <img class="enemy-image" src="" alt="enemy">
         </div>
     </div>
 </template>
@@ -22,6 +22,7 @@ export default {
             show_img1: false,
             show_img2: true,
             show_img3: false,
+            enemy_appearance: 0
         }
     },
     methods: {
@@ -35,7 +36,6 @@ export default {
 
             for (var i in mobs) {
                 if (user[0].name == mobs[i].owner && user[0].passwd == mobs[i].owner_passwd) {
-                    console.log("SEU MOB É " + mobs[i].mob_appearance)
                     var value = mobs[i].mob_appearance
                     this.n = value;
                     
@@ -60,10 +60,48 @@ export default {
                     }
                 }
             }
+        },
+
+        async getEnemyAppearance() {
+            //Get logged user
+            const loggedDB = await fetch('http://localhost:3000/logado');
+            const user = await loggedDB.json();
+
+            //Get user mob
+            const mobsDB = await fetch('http://localhost:3000/mobs');
+            const mobs = await mobsDB.json();
+
+            for (var i in mobs) {
+                if(user[0].name == mobs[i].owner && user[0].passwd == mobs[i].owner_passwd) {
+                    const enemiesDB = await fetch('http://localhost:3000/enemies');
+                    const enemy = await enemiesDB.json();
+                    //Get enemy appearance
+                    if (mobs[i].level < 5) {
+                        this.enemy_appearance = enemy.snake[0].enemy_appearance;
+                    } else if ( 5 < mobs[i].level < 10) {
+                        this.enemy_appearance = enemy.quimera[0].enemy_appearance;
+                    }
+                }
+            }
+            this.changeAppearance()
+        },
+
+        changeAppearance() {
+            const img = document.querySelector('.enemy-image');
+            
+            switch (this.enemy_appearance) {
+                case 1:
+                    img.src = '/img/snake-enemy.png';
+                    break
+                case 2:
+                    img.src = '/img/quimera-enemy.png';
+                    break
+            }
         }
     },
     created() {
         this.mob_appearance()
+        this.getEnemyAppearance()
     }
 }
 </script>
