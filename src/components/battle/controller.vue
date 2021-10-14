@@ -55,7 +55,6 @@ export default {
 
             for (var i in mobs) {
                 if (user[0].name == mobs[i].owner && user[0].passwd == mobs[i].owner_passwd) {
-                    console.log("SEU MOB É " + mobs[i].mob_appearance)
                     var value = mobs[i].mob_appearance
                     this.n = value;
                     
