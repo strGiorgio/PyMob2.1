@@ -47,12 +47,17 @@
                 <h2>Battle</h2>
                 <article>
                     <h3>Batalha</h3>
-                    <p>Na arena você terá 4 ações. Atacar, regenerar e fugir. O jogador terá uma rodada por vez, podendo escolher sua ação, sendo assim, você só pode atacar ou regenerar por cada vez separadamente. Escolha a ação certa!</p>
+                    <p>Na arena você terá 4 ações. Atacar, ataque especial, regenerar e fugir. O jogador terá uma rodada por vez, podendo escolher sua ação, sendo assim, você só pode atacar ou regenerar por cada vez separadamente. Escolha a ação certa!</p>
                 </article>
 
                 <article>
                     <h3>Atacar</h3>
                     <p>Caso ataque, seu hit no inimigo será sua força multiplicada pela estamina.</p>
+                </article>
+
+                <article>
+                    <h3>Ataque Especial</h3>
+                    <p>O ataque especial, raramente poderá ser usado, mas quando usado, da 1.5x de dano ao enimigo.</p>
                 </article>
 
                 <article>
