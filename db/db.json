@@ -15,18 +15,20 @@
     {
       "owner": "Giorgio",
       "owner_passwd": "22112g",
-      "hp": 100,
-      "defense": 50,
-      "strength": 35,
-      "stamina": 35,
-      "level": 7,
-      "points": 69,
+      "current_hp": 20,
+      "hp": 20,
+      "defense": 10,
+      "strength": 5,
+      "stamina": 5,
+      "level": 3,
+      "points": 100,
       "id": 1,
-      "mob_appearance": 2
+      "mob_appearance": 1
     },
     {
       "owner": "Eduardo",
       "owner_passwd": "111111",
+      "current_hp": 20,
       "hp": 20,
       "defense": 10,
       "strength": 5,
@@ -49,11 +51,12 @@
       {
         "name": "Snake King",
         "level": 5,
-        "current_hp": 20,
+        "current_hp": 25,
         "hp": 25,
         "defense": 10,
         "strength": 5,
         "stamina": 5,
+        "enemy_appearance": 1,
         "id": 1
       }
     ],
@@ -61,11 +64,12 @@
       {
         "name": "Quimera",
         "level": 10,
-        "current_hp": 20,
+        "current_hp": 40,
         "hp": 40,
         "defense": 20,
         "strength": 8,
         "stamina": 6,
+        "enemy_appearance": 2,
         "id": 2
       }
     ]
