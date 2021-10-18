@@ -56,6 +56,7 @@ export default {
             const user = await loggedDb.json()
             
             console.log('logout', resLoggedDB, delUserLogged, user)
+            document.location.reload(true)
         }
     },
     mounted() {
