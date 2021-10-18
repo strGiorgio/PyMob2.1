@@ -8,7 +8,7 @@
                 <li><a href="#">Config</a></li>
                 <li><a href="#">Change Avatar</a></li>
                 <hr>
-                <li><a href="#">Logout</a></li>
+                <li><a href="#" @click="logout">Logout</a></li>
             </ul>
             </li>
         </ul>
@@ -30,6 +30,32 @@ export default {
             const req = await fetch(url)
             const res = await req.json();
             this.user = res[0].name
+        },
+
+        async logout() {
+            const data = {
+                name: null,
+                passwd: null
+            }
+
+            //Get user logged and delete 
+            const reqLoggedDB = await fetch('http://localhost:3000/logado');
+            const resLoggedDB = await reqLoggedDB.json();
+
+            const delUserLogged = await fetch(`http://localhost:3000/logado/${resLoggedDB[0].id}`, {
+                method: 'DELETE'
+            });
+
+
+            //Add a empty user
+            const loggedDb = await fetch('http://localhost:3000/logado', {
+                method: 'POST',
+                headers: {"content-Type" : "application/json"},
+                body: JSON.stringify(data)
+            })
+            const user = await loggedDb.json()
+            
+            console.log('logout', resLoggedDB, delUserLogged, user)
         }
     },
     mounted() {
