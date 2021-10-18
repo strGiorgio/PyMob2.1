@@ -7,7 +7,7 @@
         </div>
         <div class="controller-buttons">
             <progress id="progress-bar" :max="max_hp" value="20"></progress>
-            <span>HP: 10 / {{ max_hp }}</span>
+            <span>HP: {{ current_hp }} / {{ max_hp }}</span>
             <button>Atack</button>
             <button>Atack Especial</button>
             <button>Escape</button>
@@ -23,6 +23,7 @@ export default {
     data() {
         return {
             max_hp: null,
+            current_hp: null,
             show_img1: false,
             show_img2: true,
             show_img3: false
@@ -40,6 +41,7 @@ export default {
             for (var i in mobs) {
                 if (user[0].name == mobs[i].owner && user[0].passwd == mobs[i].owner_passwd){
                     this.max_hp = mobs[i].hp
+                    this.current_hp = mobs[i].current_hp
                 }
             }
 
