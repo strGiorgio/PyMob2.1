@@ -23,7 +23,7 @@
             <span class="buttons" @click="marketplace('stamina')">BUY</span>
         </div>
 
-        <button><router-link to="/battle">Start Battle</router-link></button>
+        <button @click="initBattle"><router-link to="/battle">Start Battle</router-link></button>
     </div>
 </template>
 <script>
@@ -166,6 +166,33 @@ export default {
                     }
                 }
             }
+        },
+
+        async initBattle() {
+            const getUserLogged = await fetch('http://localhost:3000/logado')
+            const dbLogged = await getUserLogged.json();
+
+            //Getting user mob
+            const getMob = await fetch('http://localhost:3000/mobs');
+            const dbMobs = await getMob.json();
+
+            for (var i in dbMobs) {
+                if (dbLogged[0].name == dbMobs[i].owner && dbLogged[0].passwd == dbMobs[i].owner_passwd) {
+                    const current = dbMobs[i].hp;
+                    const data = JSON.stringify({current_hp: current});
+                    const id = dbMobs[i].id;
+
+                    const updateDB = await fetch(`http://localhost:3000/mobs/${id}`, {
+                        method: 'PATCH',
+                        headers: {"Content-Type" : "application/json"},
+                        body: data
+                    });
+                    const res = await updateDB.json()
+
+                    console.log(res)
+                }
+            }
+            document.location.reload(true)
         }
 
     },
