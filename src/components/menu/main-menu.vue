@@ -1,5 +1,5 @@
 <template>
-    <div class="main-container">
+    <div class="main-menu">
         <h1>PyMob 2.1</h1>
         <div class="wrapper-buttons">
             <button><router-link to="/new_game">New Game</router-link></button>
@@ -15,7 +15,7 @@ export default {
 </script>
 
 <style scoped>
-    .main-container {   
+    .main-menu {   
         background-color: var(--color-primary);
         width: 100vw;
         max-width: 1920px;
@@ -28,7 +28,7 @@ export default {
         margin: 0 auto;
     }
 
-    .main-container h1{
+    .main-menu h1{
         font-size: 11rem;
         font-family: var(--font-primary);
         text-shadow: 5px 5px 1px var(--color-black-shadow);
@@ -36,11 +36,11 @@ export default {
         color: var(--color-black-default);
     }
 
-    .main-container .wrapper-buttons {
+    .main-menu .wrapper-buttons {
         width: 70%;
     }
 
-    .main-container button {
+    .main-menu button {
         width: 100%;
         height: 40px;
         font-size: 1.5rem;
@@ -51,13 +51,26 @@ export default {
         transition: .2s;
     }
 
-    .main-container button a {
+    .main-menu button a {
         text-decoration: none;
         color: var(--color-black-default);
     }
 
-    .main-container button:hover {
+    .main-menu button:hover {
         transform: scale(1.02);
+    }
+
+    @media (max-width: 1024px) {
+        .main-menu h1 {
+            font-size: 7rem;
+        }
+    }
+
+    @media (max-width: 640px) {
+        .main-menu h1 {
+            font-size: 5rem;
+            text-align: center;
+        }
     }
 
     @keyframes fontAnimation {
