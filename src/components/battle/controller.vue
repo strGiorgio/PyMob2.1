@@ -6,7 +6,7 @@
             <img src="/img/urso-avatar.png" alt="" v-show="show_img3">
         </div>
         <div class="controller-buttons">
-            <progress id="progress-bar" :max="max_hp" value="20"></progress>
+            <progress id="progress-bar" :max="max_hp" :value="current_hp"></progress>
             <span>HP: {{ current_hp }} / {{ max_hp }}</span>
             <button>Atack</button>
             <button>Atack Especial</button>
@@ -42,6 +42,7 @@ export default {
                 if (user[0].name == mobs[i].owner && user[0].passwd == mobs[i].owner_passwd){
                     this.max_hp = mobs[i].hp
                     this.current_hp = mobs[i].current_hp
+                    console.log(this.current_hp)
                 }
             }
 
