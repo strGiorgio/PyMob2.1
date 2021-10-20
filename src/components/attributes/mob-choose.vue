@@ -3,9 +3,9 @@
         <img src="/img/morcego.png" alt="Your mob apperence" v-show="show_img1">
         <img src="/img/tartaruga.png" alt="Your mob apperence" v-show="show_img2">
         <img src="/img/urso.png" alt="Your mob apperence" v-show="show_img3">
-        <div class="wrapper-button-pick">
-            <button class="btn-pick" @click="pickMob" title="click to pick your mob appearance">Pick</button>
-        </div>
+        
+        <button class="btn-pick" @click="pickMob" title="click to pick your mob appearance">Pick</button>
+        
         <div class="wrapper-buttons">
             <button @click="slideMobs('previous')">Previous</button>
             <button @click="slideMobs('next')">Next</button>
@@ -150,24 +150,27 @@ export default {
 </script>
 
 <style scoped>
+
     .container {
         border: 2px solid var(--color-black-default);
         padding: 0;
         margin: 0;
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 10fr 1fr 1fr;
         width: 30%;
         height: 100%;
+    
     }
 
     .container img {
         width: 100%;
-        height: 90%;
+        height: 100%;
     }
 
-    .container .wrapper-button-pick .btn-pick {
-        width: 100% ;
-        height: 40px;
+    .container .btn-pick {
+        width: 100%;
+        height: 100%;
         font: 1rem var(--font-primary);
         background-color: var(--color-secondary);
         border: 2px solid var(--color-black-default);
@@ -175,11 +178,6 @@ export default {
 
     .container .wrapper-button-pick .btn-pick.clicked {
         background: var(--color-secondary-shadow);
-    }
-
-    .container .wrapper-buttons {
-        width: 100%;
-        height: 10%;
     }
 
     .container .wrapper-buttons button {
