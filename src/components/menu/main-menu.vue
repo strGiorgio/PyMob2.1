@@ -2,8 +2,8 @@
     <div class="main-menu">
         <h1>PyMob 2.1</h1>
         <div class="wrapper-buttons">
-            <button><router-link to="/new_game">New Game</router-link></button>
-            <button><router-link to="/help">How to play</router-link></button>
+            <router-link class="router-button" to="/new_game">New Game</router-link>
+            <router-link class="router-button" to="/help">How to play</router-link>
         </div>
     </div>
 </template>
@@ -40,23 +40,22 @@ export default {
         width: 70%;
     }
 
-    .main-menu button {
+    .main-menu .router-button {
         width: 100%;
-        height: 40px;
+        padding: 10px;
         font-size: 1.5rem;
         font-family: var(--font-primary);
         background-color: var(--color-secondary);
         border: 2px solid var(--color-black-default);
-        margin: 5px;
+        margin-bottom: 5px;
         transition: .2s;
-    }
-
-    .main-menu button a {
         text-decoration: none;
         color: var(--color-black-default);
+        display: block;
+        text-align: center;
     }
 
-    .main-menu button:hover {
+    .main-menu .router-button:hover {
         transform: scale(1.02);
     }
 
