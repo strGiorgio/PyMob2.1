@@ -23,7 +23,7 @@
             <span class="buttons" @click="marketplace('stamina')">BUY</span>
         </div>
 
-        <button @click="initBattle"><router-link to="/battle">Start Battle</router-link></button>
+        <router-link class="router-button" @click="initBattle" to="/battle">Start Battle</router-link>
     </div>
 </template>
 <script>
@@ -193,6 +193,7 @@ export default {
                 }
             }
             document.location.reload(true)
+
         }
 
     },
@@ -251,17 +252,15 @@ export default {
         color: var(--color-green-secondary);
     }
 
-    .wrapper-attr button {
-        width: 40%;
+    .wrapper-attr .router-button {
+        width: 300px;
         padding: 30px 20px;
         background-color: var(--color-green-secondary);
         border: 2px solid var(--color-black-default);
         align-self: end;
-    }
-
-    .wrapper-attr button a {
         text-decoration: none;
         color: var(--color-black-default);
+        text-align: center;
     }
 
 </style>
