@@ -19,14 +19,14 @@ export default {
     .moldure {
         width: 50px;
         height: 50px;
-        background-color: var(--color-white-default);
-        border: 3px solid var(--color-black-default);
+        border: 2px solid var(--color-black-default);
         overflow: hidden;
+        box-sizing: border-box;
     }
 
     .img-avatar {
-        width: 50px;
-        height: 50px;
+        width: 100%;
+        height: 100%;
     }
 
 </style>
