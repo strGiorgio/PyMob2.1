@@ -7,7 +7,7 @@
         
 
         <div class="wrapper-hp">
-            <p>HP:  </p>
+            <p>HP:</p>
             <progress :max="max_hp" :value="current_hp"></progress>
         </div>
         
@@ -37,8 +37,8 @@ export default {
 
             for (var i in mobs) {
                 if(user[0].name == mobs[i].owner && user[0].passwd == mobs[i].owner_passwd) {
-                        const enemiesDB = await fetch('http://localhost:3000/enemies');
-                        const enemy = await enemiesDB.json();
+                    const enemiesDB = await fetch('http://localhost:3000/enemies');
+                    const enemy = await enemiesDB.json();
                     if (mobs[i].level < 5) {
                         this.max_hp = enemy.snake[0].hp;
                         this.current_hp = enemy.snake[0].current_hp;

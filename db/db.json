@@ -15,15 +15,15 @@
     {
       "owner": "Giorgio",
       "owner_passwd": "22112g",
-      "current_hp": 20,
-      "hp": 20,
+      "current_hp": 65,
+      "hp": 65,
       "defense": 10,
       "strength": 5,
-      "stamina": 5,
+      "stamina": 7,
       "level": 3,
-      "points": 100,
+      "points": 73,
       "id": 1,
-      "mob_appearance": 1
+      "mob_appearance": 2
     },
     {
       "owner": "Eduardo",
@@ -43,7 +43,7 @@
     {
       "name": "Giorgio",
       "passwd": "22112g",
-      "id": 23
+      "id": 2
     }
   ],
   "enemies": {

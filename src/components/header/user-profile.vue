@@ -50,7 +50,7 @@ export default {
             //Add a empty user
             const loggedDb = await fetch('http://localhost:3000/logado', {
                 method: 'POST',
-                headers: {"content-Type" : "application/json"},
+                headers: {"Content-Type" : "application/json"},
                 body: JSON.stringify(data)
             })
             const user = await loggedDb.json()

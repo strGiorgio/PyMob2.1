@@ -35,17 +35,17 @@ export default {
 
 <style scoped>
     .main-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: var(--color-secondary);
-    height: 70px;
-    max-height: 100px;
-    width: 100%;
-    max-width: 1920px;
-    position: relative;
-    margin: 0 auto;
-    padding: 15px;
-}
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: var(--color-secondary);
+        height: 70px;
+        max-height: 100px;
+        width: 100%;
+        max-width: 1920px;
+        position: relative;
+        margin: 0 auto;
+        padding: 15px;
+    }
 
 </style>
