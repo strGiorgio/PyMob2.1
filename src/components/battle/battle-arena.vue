@@ -113,6 +113,8 @@ export default {
         display: flex;
         justify-content: center;
         align-items: center;
+        background: url('/img/background-default.png');
+        background-size: cover;
     }
 
     .battle-arena .wrapper-floor-mobs {
