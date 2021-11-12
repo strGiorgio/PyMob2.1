@@ -89,7 +89,8 @@ export default {
         async signUp() {
             const user = {
                 name: this.name, 
-                passwd: this.passwd
+                passwd: this.passwd,
+                avatar: '/img/avatar.png'
             }
 
             const req = await fetch('http://localhost:3000/users')
