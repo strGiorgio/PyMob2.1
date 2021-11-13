@@ -15,7 +15,7 @@
         <input id="passwd" type="password" placeholder="Your password here..." minlength="2" maxlength="6" v-model="passwd"> 
 
         <div class="wrapper-buttons">
-            <input class="btn-submit" @click="logIn" type="submit" value="Log In">
+            <input class="btn-submit" @click="logIn" type="submit" value="Sign In">
             <input class="btn-submit" @click="signUp" type="submit" value="Sign Up">
         </div>
     </form>
