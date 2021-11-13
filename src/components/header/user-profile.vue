@@ -14,7 +14,7 @@
                 </li>
             </ul>
         </div>
-        <changeAvatar />
+        <changeAvatar @closed="closedFunc" v-show="display"/>
     </div>
 </template>
 
@@ -25,13 +25,18 @@ export default {
     name: 'userProfile',
     data() {
         return {
-            user: null
+            user: null,
+            display: true
         }
     },
     components: {
         changeAvatar
     },
     methods: {
+        closedFunc() {
+            this.display = false
+            console.log('closed')
+        },
         async getUser() {
             const url = 'http://localhost:3000/logado';
             const req = await fetch(url)
