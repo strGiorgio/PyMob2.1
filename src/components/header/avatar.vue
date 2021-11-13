@@ -48,7 +48,7 @@ export default {
         border: 2px solid var(--color-black-default);
         overflow: hidden;
         box-sizing: border-box;
-        background-image: url('');
+        
         background-size: cover ;
     }
 
