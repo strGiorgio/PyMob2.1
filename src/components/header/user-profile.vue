@@ -7,14 +7,14 @@
                 </svg></span></a>
                 <ul>
                     <li><a href="#">Config</a></li>
-                    <li><a href="#">Change Avatar</a></li>
+                    <li @click="toggleButton"><a href="#">Change Avatar</a></li>
                     <hr>
                     <li><a href="#" @click="logout">Logout</a></li>
                 </ul>
                 </li>
             </ul>
         </div>
-        <changeAvatar @closed="closedFunc" v-show="display"/>
+        <changeAvatar @closed="toggleButton" v-show="display"/>
     </div>
 </template>
 
@@ -26,17 +26,17 @@ export default {
     data() {
         return {
             user: null,
-            display: true
+            display: false
         }
     },
     components: {
         changeAvatar
     },
     methods: {
-        closedFunc() {
-            this.display = false
-            console.log('closed')
+        toggleButton() {
+            this.display = !this.display
         },
+
         async getUser() {
             const url = 'http://localhost:3000/logado';
             const req = await fetch(url)
@@ -91,6 +91,7 @@ export default {
     .user-profile ul li {
         text-align: left;
         display: inline-block;
+        cursor: pointer;
     }
 
     .user-profile ul li a{
