@@ -20,9 +20,33 @@ export default {
     },
     emits: ['closed'],
     methods: {
-        sendToDB(e) {
+        async sendToDB(e) {
             e.preventDefault()
+
+            //Find user logado in users database
+            const logadosDB = await fetch('http://localhost:3000/logado');
+            const logados = await logadosDB.json()
+
+            const usersDB = await fetch('http://localhost:3000/users');
+            const users = await usersDB.json()
+            //Create var id
+            var id = null
+            //Veriy user, if equal id = user id
+            for (var i in users) {
+                if (logados[0].name == users[i].name && logados[0].passwd == users[i].passwd) {
+                    id = users[i].id
+                }
+            }
+            //Put url in user database
+            const data = JSON.stringify({avatar: this.url})
+            await fetch(`http://localhost:3000/users/${id}`, {
+                method: 'PATCH',
+                headers: {"Content-Type": "application/json"},
+                body: data
+            });
             console.log(this.url)
+
+            
         }
     }
 }
