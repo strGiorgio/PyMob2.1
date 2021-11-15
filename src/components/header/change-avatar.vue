@@ -46,7 +46,7 @@ export default {
             });
             console.log(this.url)
 
-            
+            setTimeout(() => {window.location.reload()}, 500)
         }
     }
 }
