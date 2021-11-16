@@ -3,12 +3,26 @@
     {
       "id": 1,
       "name": "Giorgio",
-      "passwd": "22112g"
+      "passwd": "22112g",
+      "avatar": "https://i.imgur.com/4VQLnvN.jpeg"
     },
     {
       "name": "Eduardo",
       "passwd": "111111",
+      "avatar": "/img/avatar.png",
       "id": 3
+    },
+    {
+      "name": "Antony",
+      "passwd": "202020",
+      "avatar": "/img/avatar.png",
+      "id": 4
+    },
+    {
+      "name": "Roger Guedes",
+      "passwd": "123123",
+      "avatar": "/img/avatar.png",
+      "id": 5
     }
   ],
   "mobs": [
@@ -17,13 +31,13 @@
       "owner_passwd": "22112g",
       "current_hp": 65,
       "hp": 65,
-      "defense": 10,
-      "strength": 5,
-      "stamina": 7,
+      "defense": 11,
+      "strength": 10,
+      "stamina": 10,
       "level": 3,
-      "points": 73,
+      "points": 64,
       "id": 1,
-      "mob_appearance": 2
+      "mob_appearance": 0
     },
     {
       "owner": "Eduardo",
@@ -37,6 +51,19 @@
       "points": 0,
       "mob_appearance": 2,
       "id": 3
+    },
+    {
+      "owner": "Antony",
+      "owner_passwd": "202020",
+      "hp": 20,
+      "defense": 10,
+      "strength": 5,
+      "stamina": 5,
+      "level": 0,
+      "points": 0,
+      "mob_appearance": 2,
+      "id": 4,
+      "current_hp": 20
     }
   ],
   "logado": [

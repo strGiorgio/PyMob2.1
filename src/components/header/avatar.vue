@@ -1,7 +1,5 @@
 <template>
-    <div class="moldure">
-        
-    </div>
+    <div class="moldure"></div>
 </template>
 
 <script>
@@ -48,7 +46,6 @@ export default {
         border: 2px solid var(--color-black-default);
         overflow: hidden;
         box-sizing: border-box;
-        
         background-size: cover ;
     }
 
