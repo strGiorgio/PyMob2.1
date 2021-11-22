@@ -8,9 +8,9 @@
         <div class="controller-buttons">
             <progress id="progress-bar" :max="max_hp" :value="current_hp"></progress>
             <span>HP: {{ current_hp }} / {{ max_hp }}</span>
-            <button>Atack</button>
-            <button>Atack Especial</button>
-            <button>Escape</button>
+            <button>Attack</button>
+            <button>Especial Attack</button>
+            <button>Flee</button>
             <button>Regenerate</button>
         </div>
         
