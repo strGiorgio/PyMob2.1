@@ -12,33 +12,33 @@
                 <h2>Attributes, Points and Level</h2>
                 <article>
                     <h3>HP:</h3>
-                    <p>Todo mob inicia com 20 de HP que é seus pontos de vida.</p>
+                    <p>Every mob starts with 20 HP which is your hit points.</p>
                 </article>
 
                 <article>
                     <h3>DEFENSE:</h3>
-                    <p>Todo mob inicia com 5 de defesa, a defesa subtrai o dano inimigo, ou seja, caso você receba 30 de dano, será descontado 5, recebendo 25 de dano.</p>
+                    <p>Every mob starts with 5 defense, the defense subtracts enemy damage, meaning if you take 30 damage, you'll be deacityd 5, taking 25 damage.</p>
                 </article>
 
                 <article>
                     <h3>STRENGTH:</h3>
-                    <p>Todo mob inicia com 5 de força, sua força é multiplicada por sua estamina.</p>
+                    <p>Every mob starts with 5 strength, its strength is multiplied by its stamina.</p>
                 </article>
 
                 <article>
                     <h3>ESTAMINA:</h3>
-                    <p>Todo mob inicia com 1 de estamina. A estamina serve para regenerar seu mob mais rapido e aumentar ao dano total.</p>
+                    <p>Every mob starts with 1 stamina. Stamina serves to regenerate your mob faster and increase total damage.</p>
                 </article>
 
                 <div class="points-level"> 
                     <article>
                         <h3>Level</h3>
-                        <p>A cada level, você enfrentará novos inimigos. Quanto maior seu level, mais difícil será!</p>
+                        <p>At each level, you will face new enemies. The higher your level, the harder it will be!</p>
                     </article>
 
                     <article>
                         <h3>Points</h3>
-                        <p>Seus pontos poderam ser trocados por mais atributos. Para ganhar pontos você precisa ganhar batalhas.</p>
+                        <p>Your points can be exchanged for more attributes. To earn points you need to win battles.</p>
                     </article>
                 </div>
             </div>
@@ -46,28 +46,28 @@
             <div class="help-battle" v-show="showBattleHelp">
                 <h2>Battle</h2>
                 <article>
-                    <h3>Batalha</h3>
-                    <p>Na arena você terá 4 ações. Atacar, ataque especial, regenerar e fugir. O jogador terá uma rodada por vez, podendo escolher sua ação, sendo assim, você só pode atacar ou regenerar por cada vez separadamente. Escolha a ação certa!</p>
+                    <h3>Battle</h3>
+                    <p>In the arena you will have 4 shares. Attack, special attack, regenerate and escape. The player will have one round at a time, being able to choose their action, so you can only attack or regenerate each time separately. Choose the right action!</p>
                 </article>
 
                 <article>
-                    <h3>Atacar</h3>
+                    <h3>Attack</h3>
                     <p>Caso ataque, seu hit no inimigo será sua força multiplicada pela estamina.</p>
                 </article>
 
                 <article>
-                    <h3>Ataque Especial</h3>
-                    <p>O ataque especial, raramente poderá ser usado, mas quando usado, da 1.5x de dano ao enimigo.</p>
+                    <h3>Especial Attack</h3>
+                    <p>If you attack, your hit on the enemy will be your strength multiplied by stamina.</p>
                 </article>
 
                 <article>
-                    <h3>Regenerar</h3>
-                    <p>Sua regeneração é sua defesa multiplicado por sua estamina, lembrando que quando maior a estamina, mais rápido será sua regeneração.</p>
+                    <h3>Regenerate</h3>
+                    <p>Its regeneration is its defense multiplied by its stamina, remembering that the greater the stamina, the faster its regeneration will be.</p>
                 </article>
 
                 <article>
-                    <h3>Fugir</h3>
-                    <p>Caso decida fugir, você não ganhará nenhum ponto e seu level não subirá, lembrando que pode haver a chance de seu mob não conseguir fugir, caso sua estamina esteja baixa.</p>
+                    <h3>Flee</h3>
+                    <p>If you decide to run, you won't earn any points and your level won't go up, remembering that there may be a chance your mob won't be able to escape if your stamina is low.</p>
                 </article>
             </div>
         </div>
